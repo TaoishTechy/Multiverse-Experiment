@@ -1,0 +1,51 @@
+{
+  "entropic": [
+    "Consider: [CORE_STATEMENT] — via [MECHANISMS]; encoded as [MATH]; entails [CONSEQUENCES].",
+    "The Entropic Paradox: [CORE_STATEMENT]. Mechanisms: [MECHANISMS]. Math: [MATH]. Outcomes: [CONSEQUENCES].",
+    "In the thermodynamic theater: [CORE_STATEMENT]. Processed by: [MECHANISMS]. Formally: [MATH]. Results in: [CONSEQUENCES].",
+    "Information entropy yields: [CORE_STATEMENT]. Through: [MECHANISMS]. Quantified: [MATH]. Leading to: [CONSEQUENCES].",
+    "The arrow of information: [CORE_STATEMENT]. Channels: [MECHANISMS]. Equation: [MATH]. Destination: [CONSEQUENCES]."
+  ],
+  "temporal": [
+    "Unveil the Temporal Distortion: [CORE_STATEMENT]. Governed by: [MECHANISMS]. Formulated as: [MATH]. Results: [CONSEQUENCES].",
+    "The Time Paradox: [CORE_STATEMENT]. Dynamics: [MECHANISMS]. Calculus: [MATH]. Future/Past: [CONSEQUENCES].",
+    "Chronological anomaly: [CORE_STATEMENT]. Time-loop mechanics: [MECHANISMS]. Temporal equations: [MATH]. Timeline effects: [CONSEQUENCES].",
+    "Retrocausal revelation: [CORE_STATEMENT]. Causal mechanisms: [MECHANISMS]. Spacetime math: [MATH]. Chronological consequences: [CONSEQUENCES].",
+    "The Eternal Now contains: [CORE_STATEMENT]. Temporal processes: [MECHANISMS]. Time equations: [MATH]. Duration outcomes: [CONSEQUENCES]."
+  ],
+  "quantum": [
+    "Quantum superposition reveals: [CORE_STATEMENT]. Through: [MECHANISMS]. Expressed: [MATH]. Therefore: [CONSEQUENCES].",
+    "The Quantum Paradox: [CORE_STATEMENT]. Quantum interactions: [MECHANISMS]. Hilbert space: [MATH]. Measurement results: [CONSEQUENCES].",
+    "Wavefunction collapse yields: [CORE_STATEMENT]. Quantum mechanisms: [MECHANISMS]. Operator formalism: [MATH]. Observable consequences: [CONSEQUENCES].",
+    "Entanglement reveals: [CORE_STATEMENT]. Non-local mechanisms: [MECHANISMS]. Density matrix: [MATH]. EPR consequences: [CONSEQUENCES].",
+    "Quantum coherence manifests: [CORE_STATEMENT]. Decoherence channels: [MECHANISMS]. Schrödinger equation: [MATH]. Classical limit: [CONSEQUENCES]."
+  ],
+  "causal_loop": [
+    "Loop Consistency: [CORE_STATEMENT]. Fixed-point form: [MATH]. Consequence: [CONSEQUENCES].",
+    "The Bootstrap Paradox: [CORE_STATEMENT]. Self-consistent mechanisms: [MECHANISMS]. Recursive equation: [MATH]. Closed timelike: [CONSEQUENCES].",
+    "Causal closure contains: [CORE_STATEMENT]. Loop mechanisms: [MECHANISMS]. Fixed-point theorem: [MATH]. Self-consistency: [CONSEQUENCES].",
+    "Time-loop statement: [CORE_STATEMENT]. Loop dynamics: [MECHANISMS]. Recursive math: [MATH]. Temporal consistency: [CONSEQUENCES].",
+    "Novikov self-consistency: [CORE_STATEMENT]. Loop processes: [MECHANISMS]. Mathematical closure: [MATH]. Inevitable outcomes: [CONSEQUENCES]."
+  ],
+  "meta_paradox": [
+    "This statement [VERB] [CONCEPT]: [CORE_STATEMENT]. Mechanism: [MECHANISMS]. Paradox depth: [DEPTH].",
+    "Meta-paradox: A statement about statements: [CORE_STATEMENT]. Reflexive mechanisms: [MECHANISMS]. Gödel encoding: [MATH]. Metalogical: [CONSEQUENCES].",
+    "Higher-order contradiction: [CORE_STATEMENT]. Meta-mechanisms: [MECHANISMS]. Type-theoretic: [MATH]. Metamathematical: [CONSEQUENCES].",
+    "The paradox of paradoxes: [CORE_STATEMENT]. Self-reference: [MECHANISMS]. Diagonalization: [MATH]. Incompleteness: [CONSEQUENCES].",
+    "Reflexive impossibility: [CORE_STATEMENT]. Meta-processes: [MECHANISMS]. Fixed-point logic: [MATH]. Undecidability: [CONSEQUENCES]."
+  ],
+  "ontological": [
+    "Reality reveals: [CORE_STATEMENT]. Ontological mechanisms: [MECHANISMS]. Formal ontology: [MATH]. Existential consequences: [CONSEQUENCES].",
+    "The Being Paradox: [CORE_STATEMENT]. Existential processes: [MECHANISMS]. Ontological calculus: [MATH]. Metaphysical results: [CONSEQUENCES].",
+    "Existence contains: [CORE_STATEMENT]. Ontic mechanisms: [MECHANISMS]. Modal logic: [MATH]. Possible worlds: [CONSEQUENCES].",
+    "The fundamental contradiction: [CORE_STATEMENT]. Grounding mechanisms: [MECHANISMS]. Foundation theory: [MATH]. Ultimate consequences: [CONSEQUENCES].",
+    "Ontological dilemma: [CORE_STATEMENT]. Being/nothingness: [MECHANISMS]. Existential math: [MATH]. Reality effects: [CONSEQUENCES]."
+  ],
+  "epistemological": [
+    "Knowledge reveals: [CORE_STATEMENT]. Cognitive mechanisms: [MECHANISMS]. Epistemic logic: [MATH]. Knowing consequences: [CONSEQUENCES].",
+    "The Knowing Paradox: [CORE_STATEMENT]. Epistemic processes: [MECHANISMS]. Justification math: [MATH]. Belief results: [CONSEQUENCES].",
+    "Certainty contains: [CORE_STATEMENT]. Justification mechanisms: [MECHANISMS]. Probability theory: [MATH]. Truth consequences: [CONSEQUENCES].",
+    "The skeptic's dilemma: [CORE_STATEMENT]. Doubt mechanisms: [MECHANISMS]. Bayesian math: [MATH]. Knowledge effects: [CONSEQUENCES].",
+    "Epistemic closure: [CORE_STATEMENT]. Knowing processes: [MECHANISMS]. Modal epistemology: [MATH]. Cognitive consequences: [CONSEQUENCES]."
+  ]
+}

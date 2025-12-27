@@ -1,0 +1,74 @@
+{
+  "classical": [
+    "Liar Paradox: This sentence is false.",
+    "Russell's Paradox: The set of all sets that do not contain themselves.",
+    "Barber Paradox: The barber shaves all and only those who do not shave themselves.",
+    "Berry Paradox: 'The smallest positive integer not definable in under sixty letters.'",
+    "Grelling–Nelson Paradox: 'Autological' describes itself, 'heterological' does not.",
+    "Crocodile Paradox: A crocodile steals a child, promises return if parent guesses correctly.",
+    "Unexpected Hanging Paradox: A prisoner is told he will be hanged on an unexpected day.",
+    "Sorites Paradox: When does a heap of sand cease to be a heap when grains are removed?",
+    "Ship of Theseus: If all parts are replaced, is it still the same ship?",
+    "Epimenides Paradox: 'All Cretans are liars' said Epimenides, a Cretan."
+  ],
+  "temporal": [
+    "Bootstrap Paradox: Information or object exists without being created.",
+    "Grandfather Paradox: Time traveler prevents own existence by killing grandfather.",
+    "Predestination Paradox: Event causes its own cause through time travel.",
+    "Polchinski's Paradox: Billiard ball enters wormhole to hit its past self.",
+    "Temporal Causality Loop: Event causes itself through closed timelike curves.",
+    "The Killing Hitler Paradox: Consequences of preventing major historical events.",
+    "The Ontological Paradox: Information exists with no point of origin.",
+    "The Consistency Paradox: Time travel must preserve self-consistency.",
+    "The Time Traveler's Dilemma: Meeting your future/past self.",
+    "The Causal Loop Paradox: Effect precedes cause indefinitely."
+  ],
+  "quantum": [
+    "Schrödinger's Cat: Quantum superposition of alive/dead states.",
+    "EPR Paradox: Quantum entanglement appears to violate locality.",
+    "Quantum Zeno Effect: Frequent measurement prevents quantum evolution.",
+    "Wigner's Friend: Observer's measurement creates reality for another observer.",
+    "Hardy's Paradox: Quantum mechanics allows contradictory inferences.",
+    "The Quantum Cheshire Cat: Particle separated from its properties.",
+    "Delayed Choice Quantum Eraser: Present choices affect past events.",
+    "The Measurement Problem: When/how does wavefunction collapse occur?",
+    "Quantum Immortality: Many-worlds interpretation suggests subjective immortality.",
+    "The Quantum Suicide Thought Experiment: Probability of survival approaches 1."
+  ],
+  "mathematical": [
+    "Banach-Tarski Paradox: Sphere decomposed into two identical spheres.",
+    "Gödel's Incompleteness Theorems: True but unprovable statements.",
+    "Skolem's Paradox: Countable models of uncountable sets.",
+    "Hausdorff Paradox: Sphere minus countable set can be partitioned into congruent pieces.",
+    "Gabriel's Horn: Infinite surface area but finite volume.",
+    "Zeno's Paradoxes: Motion is impossible (Achilles and tortoise, etc.).",
+    "Cantor's Paradox: Set of all sets leads to contradiction.",
+    "Burali-Forti Paradox: Set of all ordinal numbers is contradictory.",
+    "Richard's Paradox: Definability paradox about real numbers.",
+    "The Halting Problem: Cannot determine if arbitrary program halts."
+  ],
+  "information": [
+    "The Library of Babel: Finite but effectively infinite library containing all books.",
+    "Maxwell's Demon: Thought experiment violating second law of thermodynamics.",
+    "Newcomb's Paradox: Choice between one box or two with predictive entity.",
+    "The Unexpected Examination: Student cannot be given an unexpected exam.",
+    "The Knowability Paradox: If all truths are knowable, then all truths are known.",
+    "The Raven Paradox: Observing non-black non-ravens confirms 'all ravens are black'.",
+    "The Lottery Paradox: Each ticket likely loses, but one must win.",
+    "The Preface Paradox: Author believes each statement but not all collectively.",
+    "The Paradox of Analysis: How can analysis be both correct and informative?",
+    "Moore's Paradox: 'It is raining but I don't believe it is raining.'"
+  ],
+  "philosophical": [
+    "The Problem of Evil: Evil exists in world created by omnipotent, omnibenevolent God.",
+    "Buridan's Ass: Donkey equidistant between food and water starves deciding.",
+    "The Ship of Theseus: Identity through complete replacement of parts.",
+    "The Trolley Problem: Ethical dilemma of sacrificing one to save many.",
+    "Theseus' Paradox: Identity through gradual replacement.",
+    "The Sorites Paradox: Vague predicates lead to contradiction.",
+    "The Heap Paradox: When does a collection become a heap?",
+    "The Paradox of Fiction: Emotional responses to fictional characters.",
+    "The Paradox of Hedonism: Pursuit of pleasure prevents achieving it.",
+    "The Prisoner's Dilemma: Rational choice leads to suboptimal outcome."
+  ]
+}

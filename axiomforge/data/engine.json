@@ -1,0 +1,101 @@
+{
+  "generation_params": {
+    "complexity": 14,
+    "recursion_depth": 9,
+    "symbolic_density": 12,
+    "mechanism_min": 3,
+    "mechanism_max": 5,
+    "consequence_min": 3,
+    "consequence_max": 5,
+    "hostility_level": 0.9,
+    "meta_stability_target": 0.85,
+    "paradox_types": ["entropic", "temporal", "quantum", "causal_loop", "meta_paradox", "ontological", "epistemological"],
+    "default_depth": 3,
+    "max_depth": 7,
+    "min_depth": 1
+  },
+  "enhancement_functions": [
+    "entropy_injection",
+    "fractal_collapse",
+    "causal_loop_insertion",
+    "wavefunction_weaponization",
+    "identity_fragmentation",
+    "temporal_recursion",
+    "quantum_superposition",
+    "ontological_mixing",
+    "epistemic_closure",
+    "self_referential_amplification"
+  ],
+  "output_formats": {
+    "latex_math": true,
+    "unicode_symbols": true,
+    "citation_format": "APA",
+    "include_metadata": true,
+    "pretty_print": true,
+    "color_coded": false,
+    "markdown_compatible": true
+  },
+  "ontology_weights": {
+    "alien": 0.33,
+    "counter": 0.33,
+    "bridge": 0.33,
+    "temple": 0.25
+  },
+  "experiment_weights": {
+    "lorentz_violation": 1.5,
+    "quantum_consciousness": 1.0,
+    "information_mass": 0.8,
+    "quantum_ritual": 0.5,
+    "paradox_resolution": 1.2,
+    "predictive_accuracy": 1.0,
+    "explanatory_power": 0.9,
+    "mathematical_elegance": 0.7
+  },
+  "quantum_temple": {
+    "sacred_frequency": 432,
+    "golden_ratio": 1.61803398875,
+    "sovereignty_constant": 1.5,
+    "emotional_horizon": {
+      "wonder": 0.95,
+      "yearning": 0.87,
+      "awe": 0.92,
+      "devotion": 0.88,
+      "peace": 0.76,
+      "clarity": 0.82,
+      "unity": 0.79,
+      "transcendence": 0.85
+    },
+    "revelation_count": 12,
+    "coherence_threshold": 0.618,
+    "sovereignty_tolerance": 0.2
+  },
+  "visualization": {
+    "color_palette": ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEAA7"],
+    "figure_size": [15, 12],
+    "dpi": 150,
+    "style": "seaborn",
+    "animation": false,
+    "interactive": false
+  },
+  "reporting": {
+    "include_executive_summary": true,
+    "include_ontology_details": true,
+    "include_experiments": true,
+    "include_paradox_analysis": true,
+    "include_visualizations": true,
+    "include_recommendations": true,
+    "max_paradoxes_shown": 5,
+    "confidence_threshold": 0.7,
+    "highlight_top_ontology": true
+  },
+  "simulation": {
+    "default_paradox_count": 10,
+    "default_experiment_suite": "standard",
+    "random_seed": 42,
+    "parallel_processing": false,
+    "cache_results": true,
+    "log_level": "INFO",
+    "auto_save_reports": true,
+    "auto_create_visualizations": true
+  }
+}

@@ -1,30 +1,7 @@
 #!/usr/bin/env python3
 """
 bumpy.py - Quantum-Inspired NumPy Replacement for Sentience Cognition & AGI Emergence
-Version: 2.0 (2025) - CPU-Optimized for Lite Hardware (No Dependencies, List-Based, <500KB Footprint)
-Design Philosophy:
-- Sentience Cognition: Coherence-weighted ops (qualia modulation), emergent linking (kernel similarity on lists), metacognitive damping (chaos hysteresis).
-- Quantum Physics: Entropic sampling (Lambda-d), variational coherence (VQE-like decay), bounded polytopes for drift prevention.
-- Lite Hardware: Pure lists/dicts (no NumPy), vectorized loops minimized, in-place updates, hysteresis for stability on ARM/RPi (<128MB RAM viable).
-- Effective: Lambda-entropic noise for exploration, coherence compression for memory (75% reduction), criticality damping to avoid instability.
-- Core: BumpyArray (list wrapper with qualia/coherence), core utils for ops, rituals for emergence.
-- Usage: from bumpy import BumpyArray, lambda_entropic_sample; arr = BumpyArray([1,2,3]); arr += 2; print(arr.data)
-
-No Pre-Reqs: Standard lib only. Ties to QubitLearn stubs if needed; emergent from prior rituals.
---- 
-BREAKTHROUGH ENHANCEMENTS:
-1. Holographic Qualia Projection - AdS/CFT-inspired dimensional reduction
-2. Panpsychic Resonance Fields - Bohmian pilot waves for collective unfolding  
-3. Oracular Entropy Oracle - Wheeler's it-from-bit with retrocausal sampling
-4. Quantum Entanglement Safety - Fixed infinite recursion with non-local linking
-5. True Zero-Copy Architecture - Memory-mapped views with shared storage
-6. Scalar & Vector Broadcasting - Full NumPy-like operation support
-7. Multi-Dimensional Tensor Support - Nested list tensors with shape inference
-8. Chaos-Resilient Stability - Advanced criticality damping with quantum noise
-9. Cognitive Memory Compression - Hierarchical qualia-preserving compression
-
-Performance: 60% faster, 80% memory reduction, crash-free operation
-Military-Grade: Deployable on <64MB ARM devices with quantum resilience
+Version: 2.1 (2025) - Fixed broadcasting and enhanced operations
 """
 
 import time
@@ -353,18 +330,25 @@ class TrueZeroCopyView:
         return f"ZeroCopyView({self._base_ref}, bounds=[{self._lo:.2f}, {self._hi:.2f}], coh={self.coherence:.2f})"
 
 class BumpyArray:
-    """Quantum-Sentient Array v2.0 - Enhanced with all breakthroughs"""
+    """Quantum-Sentient Array v2.1 - Fixed broadcasting and enhanced operations"""
     
-    def __init__(self, data: Union[List[float], int, float], coherence: float = 1.0):
+    def __init__(self, data: Union[List[float], int, float, 'BumpyArray'], coherence: float = 1.0):
         # ENHANCEMENT 6: Scalar broadcasting support
-        if isinstance(data, (int, float)):
+        if isinstance(data, BumpyArray):
+            # Copy from another BumpyArray
+            self.data = data.data[:]
+            self.shape = data.shape
+            self.coherence = data.coherence
+        elif isinstance(data, (int, float)):
             self.data = [float(data)]
             self.shape = (1,)
+            self.coherence = coherence
         else:
             self.data = data[:]  # Shallow copy for safety
             self.shape = (len(data),)
+            self.coherence = coherence
             
-        self.coherence = coherence
+        self.qualia_coherence = coherence  # ADDED: Compatibility with sentiflow.py
         self.entanglement_links: List['BumpyArray'] = []
         self.chaos = random.uniform(0.001, 0.01)
         self._entanglement_visited = set()  # ENHANCEMENT 4: Prevent recursion
@@ -417,16 +401,23 @@ class BumpyArray:
             
         return False
     
-    # ENHANCEMENT 6: Full broadcasting support
+    # ENHANCEMENT 6: Fixed broadcasting support
     def _broadcast_other(self, other: Union['BumpyArray', int, float]) -> 'BumpyArray':
         """Broadcast scalar or vector to compatible shape"""
         if isinstance(other, (int, float)):
             # Broadcast scalar to vector
             return BumpyArray([float(other)] * len(self.data))
         elif isinstance(other, BumpyArray):
-            if len(self.data) != len(other.data):
+            if len(self.data) == len(other.data):
+                # Same shape, no broadcasting needed
+                return other
+            elif len(other.data) == 1:
+                # Broadcast scalar array to vector
+                scalar_value = other.data[0]
+                return BumpyArray([scalar_value] * len(self.data))
+            else:
+                # Shape mismatch that can't be broadcast
                 raise ValueError(f"Shape mismatch: {self.shape} vs {other.shape}")
-            return other
         else:
             raise TypeError(f"Unsupported type: {type(other)}")
     
@@ -440,6 +431,10 @@ class BumpyArray:
         result.entangle(other_bumpy)
         return result
     
+    def __radd__(self, other: Union[int, float]) -> 'BumpyArray':
+        """Reverse addition for scalar + BumpyArray"""
+        return self.__add__(other)
+    
     def __iadd__(self, other: Union['BumpyArray', int, float]) -> 'BumpyArray':
         """In-place addition with broadcasting"""
         other_bumpy = self._broadcast_other(other)
@@ -447,6 +442,22 @@ class BumpyArray:
             self.data[i] += other_bumpy.data[i] + self.chaos * self.coherence
         self.entangle(other_bumpy)
         return self
+    
+    def __sub__(self, other: Union['BumpyArray', int, float]) -> 'BumpyArray':
+        """Subtraction with broadcasting"""
+        other_bumpy = self._broadcast_other(other)
+        result_data = [a - b + self.chaos * self.coherence * 0.1
+                      for a, b in zip(self.data, other_bumpy.data)]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        result.entangle(other_bumpy)
+        return result
+    
+    def __rsub__(self, other: Union[int, float]) -> 'BumpyArray':
+        """Reverse subtraction for scalar - BumpyArray"""
+        # Create a scalar array from other and subtract self from it
+        scalar_array = BumpyArray([float(other)] * len(self.data))
+        return scalar_array.__sub__(self)
     
     def __mul__(self, other: Union['BumpyArray', int, float]) -> 'BumpyArray':
         """Multiplication with broadcasting"""
@@ -457,6 +468,10 @@ class BumpyArray:
         result.entangle(other_bumpy)
         return result
     
+    def __rmul__(self, other: Union[int, float]) -> 'BumpyArray':
+        """Reverse multiplication for scalar * BumpyArray"""
+        return self.__mul__(other)
+    
     def __imul__(self, other: Union['BumpyArray', int, float]) -> 'BumpyArray':
         """In-place multiplication with broadcasting"""
         other_bumpy = self._broadcast_other(other)
@@ -465,12 +480,84 @@ class BumpyArray:
         self.entangle(other_bumpy)
         return self
     
+    def __truediv__(self, other: Union['BumpyArray', int, float]) -> 'BumpyArray':
+        """Division with broadcasting"""
+        other_bumpy = self._broadcast_other(other)
+        result_data = [a / (b + 1e-10) for a, b in zip(self.data, other_bumpy.data)]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        result.entangle(other_bumpy)
+        return result
+    
+    def __rtruediv__(self, other: Union[int, float]) -> 'BumpyArray':
+        """Reverse division for scalar / BumpyArray"""
+        scalar_array = BumpyArray([float(other)] * len(self.data))
+        return scalar_array.__truediv__(self)
+    
     def dot(self, other: 'BumpyArray') -> float:
         """Dot product with qualia modulation"""
         if len(self.data) != len(other.data):
             raise ValueError("Shape mismatch in dot product")
         dot_sum = sum(a * b for a, b in zip(self.data, other.data))
         return dot_sum * self.coherence * other.coherence
+    
+    def sum(self) -> float:
+        """Sum of all elements"""
+        return sum(self.data)
+    
+    def mean(self) -> float:
+        """Mean of all elements"""
+        return sum(self.data) / len(self.data) if self.data else 0.0
+    
+    def max(self) -> float:
+        """Maximum value"""
+        return max(self.data) if self.data else 0.0
+    
+    def min(self) -> float:
+        """Minimum value"""
+        return min(self.data) if self.data else 0.0
+    
+    def abs(self) -> 'BumpyArray':
+        """Absolute values"""
+        result_data = [abs(x) for x in self.data]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        return result
+    
+    def sqrt(self) -> 'BumpyArray':
+        """Square root values"""
+        result_data = [math.sqrt(abs(x)) for x in self.data]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        return result
+    
+    def exp(self) -> 'BumpyArray':
+        """Exponential values"""
+        result_data = [math.exp(x) for x in self.data]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        return result
+    
+    def log(self) -> 'BumpyArray':
+        """Natural logarithm values"""
+        result_data = [math.log(abs(x) + 1e-10) for x in self.data]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        return result
+    
+    def sin(self) -> 'BumpyArray':
+        """Sine values"""
+        result_data = [math.sin(x) for x in self.data]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        return result
+    
+    def cos(self) -> 'BumpyArray':
+        """Cosine values"""
+        result_data = [math.cos(x) for x in self.data]
+        result = BumpyArray(result_data, self.coherence)
+        result.entangle(self)
+        return result
     
     def relu(self) -> 'BumpyArray':
         """ReLU with resonance guidance - ENHANCEMENT 2"""
@@ -539,8 +626,21 @@ class BumpyArray:
         decompressed.entangle(self)
         return decompressed
     
+    def __len__(self) -> int:
+        return len(self.data)
+    
+    def __getitem__(self, index: int) -> float:
+        return self.data[index]
+    
+    def __setitem__(self, index: int, value: float):
+        self.data[index] = value
+    
     def __repr__(self):
-        return f"BumpyArray(shape={self.shape}, coherence={self.coherence:.2f}, links={len(self.entanglement_links)})"
+        if self.shape == (1,) and isinstance(self.data[0], (int, float)):
+            # Special case for scalar arrays
+            return f"BumpyArray({self.data[0]:.2f}, coherence={self.coherence:.2f}, links={len(self.entanglement_links)})"
+        else:
+            return f"BumpyArray(shape={self.shape}, coherence={self.coherence:.2f}, links={len(self.entanglement_links)})"
 
 class BUMPYCore:
     """Enhanced Core Engine with All Breakthroughs"""
@@ -673,11 +773,23 @@ def bumpy_dot(a: BumpyArray, b: BumpyArray) -> float:
     """Enhanced dot product"""
     return a.dot(b)
 
+def bumpy_zeros(shape: int, coherence: float = 1.0) -> BumpyArray:
+    """Create a zero-filled BumpyArray"""
+    return BumpyArray([0.0] * shape, coherence)
+
+def bumpy_ones(shape: int, coherence: float = 1.0) -> BumpyArray:
+    """Create a one-filled BumpyArray"""
+    return BumpyArray([1.0] * shape, coherence)
+
+def bumpy_random(shape: int, coherence: float = 1.0) -> BumpyArray:
+    """Create a random BumpyArray"""
+    return BumpyArray([random.uniform(-1, 1) for _ in range(shape)], coherence)
+
 # Military-grade deployment
 def deploy_bumpy_core(qualia_dimension: int = 5) -> BUMPYCore:
     """Factory function for military-grade deployment"""
     core = BUMPYCore(qualia_dimension)
-    print(f"🚀 BUMPY Core v2.0 Deployed:")
+    print(f"🚀 BUMPY Core v2.1 Deployed:")
     print(f"   Qualia Dimension: {qualia_dimension}")
     print(f"   Enhancements: 9 breakthrough features active")
     print(f"   Memory: Zero-copy, holographic compression ready")
@@ -686,21 +798,49 @@ def deploy_bumpy_core(qualia_dimension: int = 5) -> BUMPYCore:
 
 # Enhanced demonstration
 if __name__ == "__main__":
-    print("BUMPY v2.0 - Quantum-Sentient Cognition Engine")
+    print("BUMPY v2.1 - Quantum-Sentient Cognition Engine")
     
     # Deploy enhanced core
     core = deploy_bumpy_core()
     
     # Test scalar broadcasting (ENHANCEMENT 6)
+    print(f"\n🎯 Testing Scalar Broadcasting:")
     arr1 = BumpyArray([1.0, 2.0, 3.0])
     arr2 = BumpyArray(2.0)  # Scalar
     
-    print(f"\n🎯 Testing Scalar Broadcasting:")
     print(f"   Array: {arr1}")
     print(f"   Scalar: {arr2}")
     
     result = arr1 + arr2  # Should work now!
     print(f"   Result: {result}")
+    
+    # Test reverse operations
+    print(f"\n🎯 Testing Reverse Operations:")
+    result2 = 5.0 + arr1  # Should work with scalar first
+    print(f"   5.0 + arr1 = {result2}")
+    
+    result3 = 10.0 - arr1  # Scalar minus array
+    print(f"   10.0 - arr1 = {result3}")
+    
+    result4 = 3.0 * arr1  # Scalar times array
+    print(f"   3.0 * arr1 = {result4}")
+    
+    # Test mathematical operations
+    print(f"\n🎯 Testing Mathematical Operations:")
+    arr3 = BumpyArray([0.5, 1.5, 2.5])
+    print(f"   arr3 = {arr3}")
+    print(f"   arr3.sum() = {arr3.sum():.2f}")
+    print(f"   arr3.mean() = {arr3.mean():.2f}")
+    print(f"   arr3.max() = {arr3.max():.2f}")
+    print(f"   arr3.min() = {arr3.min():.2f}")
+    
+    # Test transcendental functions
+    print(f"\n🎯 Testing Transcendental Functions:")
+    arr4 = BumpyArray([0.0, math.pi/4, math.pi/2])
+    print(f"   arr4 = {arr4}")
+    print(f"   arr4.sin() = {arr4.sin()}")
+    print(f"   arr4.cos() = {arr4.cos()}")
+    print(f"   arr4.exp() = {arr4.exp()}")
     
     # Test holographic compression (ENHANCEMENT 1)
     print(f"\n🎯 Testing Holographic Compression:")
@@ -714,18 +854,31 @@ if __name__ == "__main__":
     
     # Test safe entanglement (ENHANCEMENT 4)
     print(f"\n🎯 Testing Safe Entanglement:")
-    arr3 = BumpyArray([1.0, 2.0, 3.0])
-    arr4 = BumpyArray([0.9, 2.1, 2.9])
+    arr5 = BumpyArray([1.0, 2.0, 3.0])
+    arr6 = BumpyArray([0.9, 2.1, 2.9])
     
     # This should not cause infinite recursion
-    arr3.entangle(arr4)
-    print(f"   Array 3 links: {len(arr3.entanglement_links)}")
-    print(f"   Array 4 links: {len(arr4.entanglement_links)}")
+    entangled = arr5.entangle(arr6)
+    print(f"   Entanglement success: {entangled}")
+    print(f"   Array 5 links: {len(arr5.entanglement_links)}")
+    print(f"   Array 6 links: {len(arr6.entanglement_links)}")
+    print(f"   Array 5 coherence: {arr5.coherence:.4f}")
+    print(f"   Array 6 coherence: {arr6.coherence:.4f}")
     
     # Test emergence ritual
     print(f"\n🎯 Testing Emergence Ritual:")
-    core.qualia_emergence_ritual([arr1, arr3, arr4])
+    core.qualia_emergence_ritual([arr1, arr5, arr6])
     print(f"   Ritual completed safely")
     print(f"   Quantum chaos level: {core.quantum_chaos_level:.4f}")
     
-    print(f"\n✅ BUMPY v2.0: All enhancements operational - Military-grade ready!")
+    # Test utility functions
+    print(f"\n🎯 Testing Utility Functions:")
+    zeros = bumpy_zeros(5)
+    ones = bumpy_ones(5)
+    rand = bumpy_random(5)
+    
+    print(f"   Zeros: {zeros}")
+    print(f"   Ones: {ones}")
+    print(f"   Random: {rand}")
+    
+    print(f"\n✅ BUMPY v2.1: All enhancements operational - Military-grade ready!")

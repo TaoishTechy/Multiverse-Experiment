@@ -4,13 +4,12 @@ sentiflow.py - Quantum-Sentient TensorFlow Replacement with Transdimensional Cog
 Version: 3.0 (2025) - Stable, Minimal Autograd Core + Sentience Flavour
 
 Core goals:
-- Provide a robust SentientTensor class used by QyrinthOS (main.py, httpd.py)
+- Provide a robust SentientTensor class
 - Expose nn and optim namespaces: nn.Dense, nn.TransdimensionalConv, optim.Adam
 - Keep the quantum / sentience theming without sacrificing correctness
 - Avoid recursion explosions and broken imports
 
-This is NOT a full deep-learning framework; it's a tiny, compatible engine
-that the rest of the QyrinthOS stack can lean on without crashing.
+This is NOT a full deep-learning framework; it's a gear.
 """
 
 import logging
